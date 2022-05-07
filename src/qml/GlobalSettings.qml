@@ -25,6 +25,8 @@ Settings {
     property int height: 500
     property int fontPointSize: 11
     property string fontName: "Noto Mono"
+    property string lightcolorScheme: "Cutefish-Light"
+    property string darkcolorScheme: "Cutefish-Dark"
     property bool blinkingCursor: true
 
     property double opacity: 1.0

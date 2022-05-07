@@ -79,6 +79,27 @@ Window {
         }
 
         Label {
+            text: qsTr("Color Theme")
+        }
+
+        ComboBox {
+            id: themeCombobox
+            //model: Fonts.families
+            // Layout.fillHeight: true
+            Layout.fillWidth: true
+
+            onCurrentTextChanged: {
+                if(FishUI.Theme.darkMode)
+                {
+                    settings.darkcolorScheme = currentText
+                }else
+                {
+                    settings.lightcolorScheme = currentText
+                }
+            }
+        }
+
+        Label {
             text: qsTr("Transparency")
         }
 
