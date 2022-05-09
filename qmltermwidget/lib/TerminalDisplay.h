@@ -97,6 +97,7 @@ class TerminalDisplay : public QQuickPaintedItem
 
     Q_PROPERTY(bool selectedText READ selectedText CONSTANT)
 
+    Q_PROPERTY(ColorEntry *colorTable READ colorTable WRITE setColorTable NOTIFY colorTableChanged)
     Q_PROPERTY(qreal backgroundOpacity READ backgroundOpacity WRITE setBackgroundOpacity NOTIFY backgroundOpacityChanged)
 
 public:
@@ -559,6 +560,7 @@ public slots:
 
 signals:
     void backgroundOpacityChanged();
+    void colorTableChanged();
 
     /**
      * Emitted when the user presses a key whilst the terminal widget has focus.

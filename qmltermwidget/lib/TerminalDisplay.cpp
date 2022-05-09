@@ -163,6 +163,8 @@ void TerminalDisplay::setColorTable(const ColorEntry table[])
         _colorTable[i] = table[i];
 
     setBackgroundColor(_colorTable[DEFAULT_BACK_COLOR].color);
+
+    emit colorTableChanged();
 }
 
 /* ------------------------------------------------------------------------- */
