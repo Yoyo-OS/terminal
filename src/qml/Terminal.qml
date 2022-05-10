@@ -118,6 +118,16 @@ Page {
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
 
+        onColorTableChanged: {
+            if(FishUI.Theme.darkMode)
+                {
+                    settings.darkbackgroundColor = colorTable[DEFAULT_BACK_COLOR].color
+                }else
+                {
+                    settings.lightbackgroundColor = colorTable[DEFAULT_BACK_COLOR].color
+                }
+        }
+
         session: QMLTermSession {
             id: _session
             onFinished: control.terminalClosed()

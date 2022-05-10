@@ -27,6 +27,8 @@ Settings {
     property string fontName: "Noto Mono"
     property string lightcolorScheme: "Cutefish-Light"
     property string darkcolorScheme: "Cutefish-Dark"
+    property color lightbackgroundColor "#F3F4F9"
+    property color darkbackgroundColor "#1C1C1D"
     property bool blinkingCursor: true
 
     property double opacity: 1.0

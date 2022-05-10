@@ -34,7 +34,9 @@ FishUI.Window {
     height: settings.height
     title: currentItem && currentItem.terminal ? currentItem.terminal.session.title : ""
 
-    background.color: FishUI.Theme.backgroundColor
+    GlobalSettings { id: settings }
+
+    background.color: FishUI.Theme.darkMode ? settings.darkbackgroundColor : settings.lightbackgroundColor
     background.opacity: root.compositing ? settings.opacity : 1
     header.height: 40
 
@@ -42,7 +44,6 @@ FishUI.Window {
     property alias currentItem: _tabView.currentItem
     readonly property QMLTermWidget currentTerminal: currentItem ? currentItem.terminal : null
 
-    GlobalSettings { id: settings }
 
     ExitPromptDialog {
         id: exitPrompt
