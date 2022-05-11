@@ -118,6 +118,10 @@ Page {
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
 
+        onAvailableColorSchemesChanged: {
+            settings.colorschemes = availableColorSchemes
+        }
+
         onColorTableChanged: {
             if(FishUI.Theme.darkMode)
                 {

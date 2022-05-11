@@ -79,12 +79,12 @@ Window {
         }
 
         Label {
-            text: qsTr("Color Theme")
+            text: qsTr("Color Scheme")
         }
 
         ComboBox {
             id: themeCombobox
-            //model: Fonts.families
+            model: settings.colorschemes
             // Layout.fillHeight: true
             Layout.fillWidth: true
 

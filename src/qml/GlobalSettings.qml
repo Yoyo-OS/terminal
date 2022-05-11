@@ -25,6 +25,7 @@ Settings {
     property int height: 500
     property int fontPointSize: 11
     property string fontName: "Noto Mono"
+    property var colorschemes: ["Cutefish-Light","Cutefish-Dark"]
     property string lightcolorScheme: "Cutefish-Light"
     property string darkcolorScheme: "Cutefish-Dark"
     property color lightbackgroundColor "#F3F4F9"
