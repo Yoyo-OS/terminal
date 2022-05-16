@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(PROJECT_NAME cutefish-terminal)
+set(PROJECT_NAME yoyo-terminal)
 project(${PROJECT_NAME})
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -55,12 +55,12 @@ file(GLOB TS_FILES translations/*.ts)
 qt5_create_translation(QM_FILES ${TS_FILES})
 add_custom_target(translations DEPENDS ${QM_FILES} SOURCES ${TS_FILES})
 add_dependencies(${PROJECT_NAME} translations)
-install(FILES ${QM_FILES} DESTINATION /usr/share/cutefish-terminal/translations)
+install(FILES ${QM_FILES} DESTINATION /usr/share/yoyo-terminal/translations)
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION /usr/bin)
 
 install(FILES
-    cutefish-terminal.desktop
+    yoyo-terminal.desktop
     DESTINATION /usr/share/applications/
     COMPONENT Runtime
 )

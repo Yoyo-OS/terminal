@@ -24,7 +24,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Window 2.12
 
 import FishUI 1.0 as FishUI
-import Cutefish.TermWidget 1.0
+import Yoyo.TermWidget 1.0
 
 Page {
     id: control
@@ -108,7 +108,7 @@ Page {
     QMLTermWidget {
         id: _terminal
         anchors.fill: parent
-        colorScheme: FishUI.Theme.darkMode ? "Cutefish-Dark" : "Cutefish-Light"
+        colorScheme: FishUI.Theme.darkMode ? "Yoyo-Dark" : "Yoyo-Light"
         font.family: settings.fontName
         font.pointSize: settings.fontPointSize
         blinkingCursor: settings.blinkingCursor

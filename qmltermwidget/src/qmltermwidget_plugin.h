@@ -6,7 +6,7 @@
 class QmltermwidgetPlugin : public QQmlExtensionPlugin
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "Cutefish.TermWidget")
+    Q_PLUGIN_METADATA(IID "Yoyo.TermWidget")
     
 public:
     void registerTypes(const char *uri);

@@ -62,19 +62,19 @@ set(TERMWIDGET_SRCS
     src/qmltermwidget_plugin.cpp
 )
 
-add_library(cutefishqmltermwidget MODULE
+add_library(yoyoqmltermwidget MODULE
     ${TERMWIDGET_SRCS}
 )
 
-target_link_libraries(cutefishqmltermwidget
+target_link_libraries(yoyoqmltermwidget
     Qt5::Core
     Qt5::Quick
     Qt5::Gui
     Qt5::Widgets
 )
 
-install(TARGETS cutefishqmltermwidget DESTINATION ${INSTALL_QMLDIR}/Cutefish/TermWidget)
-install(FILES src/qmldir DESTINATION ${INSTALL_QMLDIR}/Cutefish/TermWidget)
-install(FILES src/QMLTermScrollbar.qml DESTINATION ${INSTALL_QMLDIR}/Cutefish/TermWidget)
-install(DIRECTORY lib/color-schemes DESTINATION ${INSTALL_QMLDIR}/Cutefish/TermWidget)
-install(DIRECTORY lib/kb-layouts DESTINATION ${INSTALL_QMLDIR}/Cutefish/TermWidget)
+install(TARGETS yoyoqmltermwidget DESTINATION ${INSTALL_QMLDIR}/Yoyo/TermWidget)
+install(FILES src/qmldir DESTINATION ${INSTALL_QMLDIR}/Yoyo/TermWidget)
+install(FILES src/QMLTermScrollbar.qml DESTINATION ${INSTALL_QMLDIR}/Yoyo/TermWidget)
+install(DIRECTORY lib/color-schemes DESTINATION ${INSTALL_QMLDIR}/Yoyo/TermWidget)
+install(DIRECTORY lib/kb-layouts DESTINATION ${INSTALL_QMLDIR}/Yoyo/TermWidget)

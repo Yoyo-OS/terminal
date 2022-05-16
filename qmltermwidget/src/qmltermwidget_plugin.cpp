@@ -27,8 +27,8 @@ void QmltermwidgetPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
         QString cs, kbl;
 
         foreach (QString pwd, pwds) {
-            cs  = pwd + "/Cutefish/TermWidget/color-schemes";
-            kbl = pwd + "/Cutefish/TermWidget/kb-layouts";
+            cs  = pwd + "/Yoyo/TermWidget/color-schemes";
+            kbl = pwd + "/Yoyo/TermWidget/kb-layouts";
             if (QDir(cs).exists()) break;
         }
 

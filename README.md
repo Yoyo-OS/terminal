@@ -1,6 +1,6 @@
-# CutefishOS Terminal
+# YoyoOS Terminal
 
-A terminal emulator for Cutefish.
+A terminal emulator for Yoyo.
 
 ### Third Party Code
 

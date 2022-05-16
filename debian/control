@@ -1,7 +1,7 @@
-Source: cutefish-terminal
+Source: yoyo-terminal
 Section: devel
 Priority: optional
-Maintainer: CutefishOS <support@cutefishos.com>
+Maintainer: YoyoOS <support@yoyoos.com>
 Build-Depends: cmake,
                debhelper (>= 9),
                extra-cmake-modules,
@@ -11,9 +11,9 @@ Build-Depends: cmake,
                qttools5-dev,
                qttools5-dev-tools
 Standards-Version: 4.5.0
-Homepage: https://cutefishos.com
+Homepage: https://yoyoos.com
 
-Package: cutefish-terminal
+Package: yoyo-terminal
 Architecture: any
 Depends: qml-module-qtquick-controls2,
          qml-module-qtquick2,
@@ -26,4 +26,4 @@ Depends: qml-module-qtquick-controls2,
          qml-module-qtquick-dialogs,
          ${misc:Depends},
          ${shlibs:Depends}
-Description: CutefishOS Terminal
+Description: YoyoOS Terminal
