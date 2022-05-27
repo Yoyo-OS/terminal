@@ -79,6 +79,36 @@ Window {
         }
 
         Label {
+            text: qsTr("Light Color Scheme")
+        }
+
+        ComboBox {
+            id: themeCombobox
+            //model: Fonts.families
+            model: settings.colorschemes
+            // Layout.fillHeight: true
+            Layout.fillWidth: true
+            onCurrentTextChanged: {
+                settings.lightcolorScheme = currentText
+            }
+        }
+
+        Label {
+            text: qsTr("Dark Color Scheme")
+        }
+
+        ComboBox {
+            id: themeCombobox
+            //model: Fonts.families
+            model: settings.colorschemes
+            // Layout.fillHeight: true
+            Layout.fillWidth: true
+            onCurrentTextChanged: {
+                settings.darkcolorScheme = currentText
+            }
+        }
+
+        Label {
             text: qsTr("Transparency")
         }
 

@@ -136,10 +136,15 @@ const ColorEntry* TerminalDisplay::colorTable() const
     return _colorTable;
 }
 
+QColor TerminalDisplay::getBackgroundColor()
+{
+    return _backgroundColor;
+}
+
 void TerminalDisplay::setBackgroundColor(const QColor& color)
 {
     _colorTable[DEFAULT_BACK_COLOR].color = color;
-
+    _backgroundColor = color;
     QPalette p = palette();
     p.setColor(backgroundRole(), color);
     setPalette(p);
@@ -148,6 +153,8 @@ void TerminalDisplay::setBackgroundColor(const QColor& color)
     _scrollBar->setPalette( QApplication::palette() );
 
     update();
+
+    emit backgroundColorChanged();
 }
 
 void TerminalDisplay::setForegroundColor(const QColor& color)

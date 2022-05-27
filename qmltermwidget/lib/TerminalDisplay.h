@@ -89,6 +89,7 @@ class TerminalDisplay : public QQuickPaintedItem
     Q_PROPERTY(int scrollbarMinimum      READ getScrollbarMinimum                  NOTIFY scrollbarParamsChanged  )
     Q_PROPERTY(QSize fontMetrics         READ getFontMetrics                       NOTIFY changedFontMetricSignal )
 
+    Q_PROPERTY(QColor *backgroundColor READ getBackgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
     Q_PROPERTY(bool enableBold           READ getBoldIntense   WRITE setBoldIntense NOTIFY boldIntenseChanged )
     Q_PROPERTY(bool fullCursorHeight     READ fullCursorHeight WRITE setFullCursorHeight NOTIFY fullCursorHeightChanged)
     Q_PROPERTY(bool blinkingCursor       READ blinkingCursor   WRITE setBlinkingCursor NOTIFY blinkingCursorStateChanged)
@@ -535,7 +536,7 @@ public slots:
      * @see setColorTable(), setForegroundColor()
      */
     void setBackgroundColor(const QColor& color);
-
+    QColor getBackgroundColor();
     /**
      * Sets the text of the display to the specified color.
      * @see setColorTable(), setBackgroundColor()
@@ -559,7 +560,7 @@ public slots:
 
 signals:
     void backgroundOpacityChanged();
-
+    void backgroundColorChanged();
     /**
      * Emitted when the user presses a key whilst the terminal widget has focus.
      */
@@ -869,6 +870,7 @@ private:
     // custom cursor color.  if this is invalid then the foreground
     // color of the character under the cursor is used
     QColor _cursorColor;
+    QColor _backgroundColor;
 
     MotionAfterPasting m_MotionAfterPasting;
 

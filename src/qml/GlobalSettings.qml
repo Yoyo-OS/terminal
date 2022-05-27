@@ -27,6 +27,12 @@ Settings {
     property string fontName: "Noto Mono"
     property bool blinkingCursor: true
 
+    property var colorschemes: ["Yoyo-Light","Yoyo-Dark"]
+    property string lightcolorScheme: "Yoyo-Light"
+    property string darkcolorScheme: "Yoyo-Dark"
+    property color lightbackgroundColor "#F3F4F9"
+    property color darkbackgroundColor "#1C1C1D"
+
     property double opacity: 1.0
     property bool blur: false
 }

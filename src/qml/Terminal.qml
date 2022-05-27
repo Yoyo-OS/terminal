@@ -105,10 +105,20 @@ Page {
         }
     }
 
+    onBackgroundColorChanged: {
+                if(FishUI.Theme.darkMode)
+                    {
+                        settings.darkbackgroundColor = backgroundColor
+                    }else
+                    {
+                        settings.lightbackgroundColor = backgroundColor
+                    }
+            }
+
     QMLTermWidget {
         id: _terminal
         anchors.fill: parent
-        colorScheme: FishUI.Theme.darkMode ? "Yoyo-Dark" : "Yoyo-Light"
+        colorScheme: FishUI.Theme.darkMode ? settings.darkcolorScheme : settings.lightcolorScheme
         font.family: settings.fontName
         font.pointSize: settings.fontPointSize
         blinkingCursor: settings.blinkingCursor
