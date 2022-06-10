@@ -105,16 +105,6 @@ Page {
         }
     }
 
-    onBackgroundColorChanged: {
-                if(FishUI.Theme.darkMode)
-                    {
-                        settings.darkbackgroundColor = backgroundColor
-                    }else
-                    {
-                        settings.lightbackgroundColor = backgroundColor
-                    }
-            }
-
     QMLTermWidget {
         id: _terminal
         anchors.fill: parent
@@ -127,6 +117,16 @@ Page {
 
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
+
+        onBackgroundColorChanged: {
+            if(FishUI.Theme.darkMode)
+                {
+                    settings.darkbackgroundColor = backgroundColor
+                }else
+                {
+                    settings.lightbackgroundColor = backgroundColor
+                }
+            }
 
         session: QMLTermSession {
             id: _session
