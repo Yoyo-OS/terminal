@@ -88,6 +88,7 @@ Window {
             model: settings.colorschemes
             // Layout.fillHeight: true
             Layout.fillWidth: true
+            displayText: settings.lightcolorScheme
             onCurrentTextChanged: {
                 settings.lightcolorScheme = currentText
             }
@@ -103,6 +104,7 @@ Window {
             model: settings.colorschemes
             // Layout.fillHeight: true
             Layout.fillWidth: true
+            displayText: settings.darkcolorScheme
             onCurrentTextChanged: {
                 settings.darkcolorScheme = currentText
             }
