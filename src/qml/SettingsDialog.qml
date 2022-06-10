@@ -83,7 +83,7 @@ Window {
         }
 
         ComboBox {
-            id: themeCombobox
+            id: lightthemeCombobox
             //model: Fonts.families
             model: settings.colorschemes
             // Layout.fillHeight: true
@@ -98,7 +98,7 @@ Window {
         }
 
         ComboBox {
-            id: themeCombobox
+            id: darkthemeCombobox
             //model: Fonts.families
             model: settings.colorschemes
             // Layout.fillHeight: true
