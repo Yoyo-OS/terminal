@@ -381,6 +381,7 @@ TerminalDisplay::TerminalDisplay(QQuickItem *parent)
     setUsesMouse(true);
     setBracketedPasteMode(false);
     setColorTable(base_color_table);
+    emit availableColorSchemesChanged();
     //setMouseTracking(true);
 
     setAcceptedMouseButtons(Qt::LeftButton);
