@@ -117,8 +117,7 @@ Page {
 
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
-        settings.colorschemes = availableColorSchemes
-        
+
         onAvailableColorSchemesChanged: {
             settings.colorschemes = availableColorSchemes
         }

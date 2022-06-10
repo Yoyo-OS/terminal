@@ -395,6 +395,8 @@ TerminalDisplay::TerminalDisplay(QQuickItem *parent)
     // TODO Forcing rendering to Framebuffer. We need to determine if this is ok
     // always or if we need to make this customizable.
     setRenderTarget(QQuickPaintedItem::FramebufferObject);
+
+    emit availableColorSchemesChanged();
 }
 
 TerminalDisplay::~TerminalDisplay()
