@@ -26,11 +26,17 @@
         <source>Settings</source>
         <translation>设置</translation>
     </message>
+</context>
+<context>
+    <name>SettingsSideBar</name>
     <message>
         <location filename="../src/qml/SettingsSideBar.qml" line="34"/>
         <source>Appearance</source>
         <translation>外观</translation>
     </message>
+</context>
+<context>
+    <name>Appearance</name>
     <message>
         <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="7"/>
         <source>Appearance</source>
