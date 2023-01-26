@@ -91,3 +91,6 @@ CMakeLists.txt.user*
 # End of https://www.toptal.com/developers/gitignore/api/cmake,linux,qt
 
 .vscode/
+debian/.debhelper
+debian/yoyo-terminal/*
+obj-x86_64-linux-gnu
