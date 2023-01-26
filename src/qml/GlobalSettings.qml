@@ -25,6 +25,7 @@ Settings {
     property int height: 500
     property int fontPointSize: 11
     property string fontName: "Noto Mono"
+    property int keyboardCursorShape: 0
     property bool blinkingCursor: true
 
     property var colorschemes: ["Yoyo-Light","Yoyo-Dark","BlackOnLightYellow","BlackOnRandomLight","BlackOnWhite","Tango","Ubuntu","Solarized","SolarizedLight"]

@@ -18,6 +18,9 @@ FishUI.Window {
     contentTopMargin: 0
     background.color: FishUI.Theme.backgroundColor
 
+    LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     visible: false
 
     RowLayout {

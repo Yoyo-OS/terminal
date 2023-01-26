@@ -14,16 +14,19 @@ Page {
 
     header: Item {
         height: control.header.height
-
-        Label {
-            anchors.left: parent.left
-            leftPadding: FishUI.Units.largeSpacing * 3
-            rightPadding: Qt.application.layoutDirection === Qt.RightToLeft ? FishUI.Units.largeSpacing * 3 : 0
-            topPadding: FishUI.Units.smallSpacing
-            bottomPadding: 0
-            font.pointSize: 12
-            text: page.headerTitle
-            color: control.active ? FishUI.Theme.textColor : FishUI.Theme.disabledTextColor
+        Rectangle {
+            anchors.fill: parent
+            color: control.background.color
+            Label {
+                anchors.left: parent.left
+                leftPadding: FishUI.Units.largeSpacing * 3
+                rightPadding: Qt.application.layoutDirection === Qt.RightToLeft ? FishUI.Units.largeSpacing * 3 : 0
+                topPadding: FishUI.Units.smallSpacing
+                bottomPadding: 0
+                font.pointSize: 12
+                text: page.headerTitle
+                color: control.active ? FishUI.Theme.textColor : FishUI.Theme.disabledTextColor
+            }
         }
     }
 }

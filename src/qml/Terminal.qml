@@ -114,6 +114,7 @@ Page {
         blinkingCursor: settings.blinkingCursor
         fullCursorHeight: true
         backgroundOpacity: 0
+        keyboardCursorShape: settings.keyboardCursorShape
 
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)

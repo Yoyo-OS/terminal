@@ -5,12 +5,12 @@ import QtQuick.Controls 2.12
 import FishUI 1.0 as FishUI
 ItemPage {
     headerTitle: qsTr("Appearance")
-    Scrollable {
+    ScrollView {
         anchors.fill: parent
+        anchors.margins: FishUI.Units.largeSpacing
     ColumnLayout {
         id: _mainLayout
         anchors.fill: parent
-        anchors.margins: 0
         anchors.bottomMargin: FishUI.Units.largeSpacing
         RoundedItem {
             Label {
@@ -108,6 +108,39 @@ ItemPage {
         }
             }
         }
+
+        RoundedItem {
+            Label {
+                text: qsTr("Keyboard Cursor")
+                color: FishUI.Theme.disabledTextColor
+            }
+            GridLayout{
+                columns: 2
+                columnSpacing: FishUI.Units.smallSpacing *2
+                rowSpacing: FishUI.Units.smallSpacing *2
+            }
+            Label {
+                text: qsTr("Shape")
+            }
+            TabBar {
+                Layout.fillWidth: true
+                currentIndex: settings.keyboardCursorShape
+                onCurrentIndexChanged: settings.keyboardCursorShape = currentIndex
+
+                TabButton {
+                    text: "▐"
+                }
+
+                TabButton {
+                    text: "▂"
+                }
+
+                TabButton {
+                    text: "|"
+                }
+            }
+        }
+
         RoundedItem {
             Label {
                 text: qsTr("Window effects")

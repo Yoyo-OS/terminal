@@ -634,10 +634,35 @@ void TerminalDisplay::drawLineCharString(    QPainter& painter, int x, int y, co
         painter.setPen( currentPen );
 }
 
+int TerminalDisplay::getKeyboardCursorShape()
+{
+    if(_cursorShape == Emulation::KeyboardCursorShape::BlockCursor)
+        return 0;
+    if(_cursorShape == Emulation::KeyboardCursorShape::UnderlineCursor)
+        return 1;
+    if(_cursorShape == Emulation::KeyboardCursorShape::IBeamCursor)
+        return 2;
+}
+void TerminalDisplay::setKeyboardCursorShape(int type)
+{
+    switch(type)
+    {
+    case 0:
+        setKeyboardCursorShape(Emulation::KeyboardCursorShape::BlockCursor);
+        break;
+    case 1:
+        setKeyboardCursorShape(Emulation::KeyboardCursorShape::UnderlineCursor);
+        break;
+    case 2:
+        setKeyboardCursorShape(Emulation::KeyboardCursorShape::IBeamCursor);
+        break;
+    }
+}
+
 void TerminalDisplay::setKeyboardCursorShape(QTermWidget::KeyboardCursorShape shape)
 {
     _cursorShape = shape;
-
+    emit keyboardCursorShapeChanged();
     updateCursor();
 }
 QTermWidget::KeyboardCursorShape TerminalDisplay::keyboardCursorShape() const
@@ -759,10 +784,10 @@ void TerminalDisplay::drawCursor(QPainter& painter,
             }
        }
        else if ( _cursorShape == Emulation::KeyboardCursorShape::UnderlineCursor )
-            painter.drawLine(cursorRect.left(),
-                             cursorRect.bottom(),
-                             cursorRect.right(),
-                             cursorRect.bottom());
+       {
+			for (int i = 0; i <= 3; ++i)
+      				painter.drawLine(QLineF( QPointF(cursorRect.left(), cursorRect.bottom()+i), QPointF(cursorRect.right(), cursorRect.bottom()+i)));
+        }
        else if ( _cursorShape == Emulation::KeyboardCursorShape::IBeamCursor )
             painter.drawLine(cursorRect.left(),
                              cursorRect.top(),

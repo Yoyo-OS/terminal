@@ -99,7 +99,7 @@ class TerminalDisplay : public QQuickPaintedItem
     Q_PROPERTY(bool selectedText READ selectedText CONSTANT)
 
     Q_PROPERTY(qreal backgroundOpacity READ backgroundOpacity WRITE setBackgroundOpacity NOTIFY backgroundOpacityChanged)
-
+    Q_PROPERTY(int keyboardCursorShape READ getKeyboardCursorShape WRITE setKeyboardCursorShape NOTIFY keyboardCursorShapeChanged)
 public:
     /** Constructs a new terminal display widget with the specified parent. */
     explicit TerminalDisplay(QQuickItem *parent = nullptr);
@@ -243,6 +243,8 @@ public:
      *
      * Defaults to BlockCursor
      */
+    int getKeyboardCursorShape();
+    void setKeyboardCursorShape(int type);
     void setKeyboardCursorShape(QTermWidget::KeyboardCursorShape shape);
     /**
      * Returns the shape of the keyboard cursor.  See setKeyboardCursorShape()
@@ -560,6 +562,7 @@ public slots:
 
 signals:
     void backgroundOpacityChanged();
+    void keyboardCursorShapeChanged();
     void backgroundColorChanged();
     /**
      * Emitted when the user presses a key whilst the terminal widget has focus.

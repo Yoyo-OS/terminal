@@ -152,7 +152,7 @@ public slots:
     void changeDir(const QString & dir);
 
     // Send some text to terminal
-    void sendText(QString text);
+    Q_INVOKABLE void sendText(QString text);
     // Send some text to terminal
     void sendKey(int rep, int key, int mod) const;
 
