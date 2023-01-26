@@ -222,6 +222,12 @@ Page {
         }
 
         MenuItem {
+            id: clearScreenItem
+            text: qsTr("Clear Screen")
+            onTriggered: _session.clearScreen()
+        }
+
+        MenuItem {
             text: qsTr("Open File Manager")
             onTriggered: Process.openFileManager(_session.currentDir)
         }

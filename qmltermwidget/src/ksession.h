@@ -156,7 +156,7 @@ public slots:
     // Send some text to terminal
     void sendKey(int rep, int key, int mod) const;
 
-    void clearScreen();
+    Q_INVOKABLE void clearScreen();
 
     // Search history
     void search(const QString &regexp, int startLine = 0, int startColumn = 0, bool forwards = true );
