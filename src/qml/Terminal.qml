@@ -154,7 +154,7 @@ Page {
                 if ((!_terminal.terminalUsesMouse || mouse.modifiers & Qt.ShiftModifier)
                         && mouse.button == Qt.RightButton) {
                     updateMenu()
-                    terminalMenu.open()
+                    terminalMenu.popup()
                 } else {
                     var coord = correctDistortion(mouse.x, mouse.y)
                     _terminal.simulateMousePress(coord.x, coord.y, mouse.button, mouse.buttons, mouse.modifiers)
@@ -174,7 +174,7 @@ Page {
             onClicked: {
                 if (mouse.button === Qt.RightButton) {
                     updateMenu()
-                    terminalMenu.open()
+                    terminalMenu.popup()
                 } else if(mouse.button === Qt.LeftButton) {
                     _terminal.forceActiveFocus()
                 }
@@ -201,9 +201,9 @@ Page {
         onTriggered: _terminal.pasteClipboard()
     }
 
-    FishUI.DesktopMenu {
+    Menu {
         id: terminalMenu
-
+        spacing: 0
         MenuItem {
             id: copyMenuItem
             action: _copyAction
@@ -221,11 +221,39 @@ Page {
             onTriggered: _terminal.selectAll()
         }
 
+        MenuSeparator{}
+
         MenuItem {
             id: clearScreenItem
             text: qsTr("Clear Screen")
             onTriggered: _session.sendText("clear\n")
         }
+
+        Menu {
+            id: bookmarkMenu
+            title: qsTr("Bookmark")
+            Repeater {
+                model: settings.bookmark
+                delegate: MenuItem {
+                text: settings.bookmark[index]
+
+                onTriggered:{
+                    _session.sendText("cd "+settings.bookmark[index]+"\n")
+                    }
+                }
+            }
+        }
+
+        MenuItem {
+            text: qsTr("Add to bookmark")
+            onTriggered: {
+                var mbm = settings.bookmark;
+                mbm.unshift(_session.currentDir)
+                settings.bookmark = mbm
+            }
+        }
+
+        MenuSeparator{}
 
         MenuItem {
             text: qsTr("Open File Manager")
@@ -238,6 +266,8 @@ Page {
                 root.visibility = root.isFullScreen ? Window.Windowed : Window.FullScreen
             }
         }
+
+        MenuSeparator{}
 
         MenuItem {
             text: qsTr("Settings")
@@ -292,6 +322,19 @@ Page {
     }
 
     function updateMenu() {
+        if(_terminal.selectedText)
+        {
+            copyMenuItem.height = copyMenuItem.implicitHeight
+        }else{
+            copyMenuItem.height = 0
+        }
+
+        if(Utils.text())
+        {
+            pasteMenuItem.height = pasteMenuItem.implicitHeight
+        }else{
+            pasteMenuItem.height = 0
+        }
         copyMenuItem.visible = _terminal.selectedText
         pasteMenuItem.visible = Utils.text()
     }
