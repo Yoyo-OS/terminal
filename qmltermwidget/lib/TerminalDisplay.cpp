@@ -3365,6 +3365,11 @@ bool TerminalDisplay::getUsesMouse()
     return !usesMouse();
 }
 
+void TerminalDisplay::setScrollbarValue(int value)
+{
+    _scrollBar->setValue(value);
+}
+
 int TerminalDisplay::getScrollbarValue()
 {
     return _scrollBar->value();

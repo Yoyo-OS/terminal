@@ -4,140 +4,50 @@ import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import FishUI 1.0 as FishUI
 
-Window {
+FishUI.Window {
     id: control
 
     title: qsTr("Settings")
+    width: 600
+    maximumWidth: 600
+    minimumWidth: 600
 
-    width: 400
-    height: _mainLayout.implicitHeight + FishUI.Units.largeSpacing * 4
-
-    maximumHeight: _mainLayout.implicitHeight + FishUI.Units.largeSpacing * 4
-    maximumWidth: 400
-    minimumWidth: 400
-    minimumHeight: _mainLayout.implicitHeight + FishUI.Units.largeSpacing * 4
-
-    flags: Qt.Dialog
+    minimizeButtonVisible: false
+    flags: Qt.WindowStaysOnTopHint | Qt.Dialog | Qt.FramelessWindowHint
     modality: Qt.WindowModal
+    contentTopMargin: 0
+    background.color: FishUI.Theme.backgroundColor
 
     visible: false
 
-    Rectangle {
+    RowLayout {
         anchors.fill: parent
-        color: FishUI.Theme.secondBackgroundColor
+        spacing: 0
+
+        SettingsSideBar {
+            id: sideBar
+            Layout.fillHeight: true
+
+            onCurrentIndexChanged: {
+                switchPageFromIndex(currentIndex)
+            }
+        }
+
+        StackView {
+            id: _stackView
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            initialItem: Qt.resolvedUrl(sideBar.model.get(0).page)
+            clip: true
+
+            pushEnter: Transition {}
+            pushExit: Transition {}
+        }
     }
 
-    GridLayout {
-        id: _mainLayout
-        anchors.fill: parent
-        anchors.margins: FishUI.Units.largeSpacing
-        columns: 2
-        columnSpacing: FishUI.Units.largeSpacing * 2
-        rowSpacing: FishUI.Units.largeSpacing * 2
-
-        Label {
-            text: qsTr("Font")
-        }
-
-        ComboBox {
-            id: fontsCombobox
-            model: Fonts.families
-            // Layout.fillHeight: true
-            Layout.fillWidth: true
-
-            onCurrentTextChanged: {
-                settings.fontName = currentText
-            }
-
-            Component.onCompleted: {
-                for (var i = 0; i <= fontsCombobox.model.length; ++i) {
-                    if (fontsCombobox.model[i] === settings.fontName) {
-                        fontsCombobox.currentIndex = i
-                        break
-                    }
-                }
-            }
-        }
-
-        Label {
-            text: qsTr("Font Size")
-        }
-
-        Slider {
-            id: fontSizeSlider
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            from: 5
-            to: 30
-            stepSize: 1
-
-            Component.onCompleted: {
-                fontSizeSlider.value = settings.fontPointSize
-            }
-
-            onMoved: settings.fontPointSize = fontSizeSlider.value
-        }
-
-        Label {
-            text: qsTr("Light Color Scheme")
-        }
-
-        ComboBox {
-            id: lightthemeCombobox
-            //model: Fonts.families
-            model: settings.colorschemes
-            // Layout.fillHeight: true
-            Layout.fillWidth: true
-            displayText: settings.lightcolorScheme
-            onCurrentTextChanged: {
-                settings.lightcolorScheme = currentText
-            }
-        }
-
-        Label {
-            text: qsTr("Dark Color Scheme")
-        }
-
-        ComboBox {
-            id: darkthemeCombobox
-            //model: Fonts.families
-            model: settings.colorschemes
-            // Layout.fillHeight: true
-            Layout.fillWidth: true
-            displayText: settings.darkcolorScheme
-            onCurrentTextChanged: {
-                settings.darkcolorScheme = currentText
-            }
-        }
-
-        Label {
-            text: qsTr("Transparency")
-        }
-
-        Slider {
-            id: transparencySlider
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-            from: 0.1
-            to: 1.0
-            stepSize: 0.05
-
-            Component.onCompleted: {
-                transparencySlider.value = settings.opacity
-            }
-
-            onMoved: settings.opacity = transparencySlider.value
-        }
-
-        Label {
-            text: qsTr("Window Blur")
-        }
-
-        Switch {
-            Layout.alignment: Qt.AlignRight
-            Layout.fillHeight: true
-            checked: settings.blur
-            onCheckedChanged: settings.blur = checked
-        }
+    function switchPageFromIndex(index) {
+        _stackView.pop()
+        _stackView.push(Qt.resolvedUrl(sideBar.model.get(index).page))
     }
+
 }

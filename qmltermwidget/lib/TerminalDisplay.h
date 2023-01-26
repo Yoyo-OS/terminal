@@ -84,7 +84,7 @@ class TerminalDisplay : public QQuickPaintedItem
     Q_PROPERTY(bool terminalUsesMouse    READ getUsesMouse                         NOTIFY usesMouseChanged        )
     Q_PROPERTY(int lines                 READ lines                                NOTIFY changedContentSizeSignal)
     Q_PROPERTY(int columns               READ columns                              NOTIFY changedContentSizeSignal)
-    Q_PROPERTY(int scrollbarCurrentValue READ getScrollbarValue                    NOTIFY scrollbarParamsChanged  )
+    Q_PROPERTY(int scrollbarCurrentValue READ getScrollbarValue WRITE setScrollbarValue NOTIFY scrollbarParamsChanged  )
     Q_PROPERTY(int scrollbarMaximum      READ getScrollbarMaximum                  NOTIFY scrollbarParamsChanged  )
     Q_PROPERTY(int scrollbarMinimum      READ getScrollbarMinimum                  NOTIFY scrollbarParamsChanged  )
     Q_PROPERTY(QSize fontMetrics         READ getFontMetrics                       NOTIFY changedFontMetricSignal )
@@ -919,6 +919,7 @@ private:
 
     bool getUsesMouse();
 
+    void setScrollbarValue(int value);
     int getScrollbarValue();
     int getScrollbarMaximum();
     int getScrollbarMinimum();

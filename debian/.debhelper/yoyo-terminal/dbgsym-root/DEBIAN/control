@@ -1,0 +1,13 @@
+Package: yoyo-terminal-dbgsym
+Package-Type: ddeb
+Source: yoyo-terminal
+Version: 0.7-3
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: YoyoOS <support@yoyoos.com>
+Installed-Size: 4419
+Depends: yoyo-terminal (= 0.7-3)
+Section: debug
+Priority: optional
+Description: debug symbols for yoyo-terminal
+Build-Ids: 6bcb65e533dd07cf7500e670a9dc55e424f21cb0 f923a83a5e0b07e03d4b7fe2aa08f69cddb87b8e

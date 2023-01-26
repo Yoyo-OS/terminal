@@ -1,0 +1,3 @@
+module Yoyo.TermWidget
+plugin yoyoqmltermwidget
+QMLTermScrollbar 1.0 QMLTermScrollbar.qml

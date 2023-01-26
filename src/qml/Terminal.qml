@@ -252,6 +252,9 @@ Page {
         orientation: Qt.Vertical
         size: (_terminal.lines / (_terminal.lines + _terminal.scrollbarMaximum - _terminal.scrollbarMinimum))
         position: _terminal.scrollbarCurrentValue / (_terminal.lines + _terminal.scrollbarMaximum)
+        onPositionChanged: {
+            _terminal.scrollbarCurrentValue = position * (_terminal.lines + _terminal.scrollbarMaximum)
+        }
     }
 
     DropArea {
