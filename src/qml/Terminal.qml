@@ -224,7 +224,7 @@ Page {
         MenuItem {
             id: clearScreenItem
             text: qsTr("Clear Screen")
-            onTriggered: _session.clearScreen()
+            onTriggered: _session.sendText("clear\n")
         }
 
         MenuItem {
