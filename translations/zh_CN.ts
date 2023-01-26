@@ -27,22 +27,62 @@
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../src/qml/SettingsDialog.qml" line="39"/>
+        <location filename="../src/qml/SettingsSideBar.qml" line="34"/>
+        <source>Appearance</source>
+        <translation>外观</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="7"/>
+        <source>Appearance</source>
+        <translation>外观</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="39"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../src/qml/SettingsDialog.qml" line="63"/>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="63"/>
         <source>Font Size</source>
         <translation>字体大小</translation>
     </message>
     <message>
-        <location filename="../src/qml/SettingsDialog.qml" line="82"/>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="71"/>
+        <source>Color Scheme</source>
+        <translation>配色</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="79"/>
+        <source>Light Color Scheme</source>
+        <translation>浅色模式</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="95"/>
+        <source>Dark Color Scheme</source>
+        <translation>深色模式</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="114"/>
+        <source>Keyboard Cursor</source>
+        <translation>光标</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="123"/>
+        <source>Shape</source>
+        <translation>样式</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="146"/>
+        <source>Window effects</source>
+        <translation>窗口效果</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="82"/>
         <source>Transparency</source>
         <translation>透明度</translation>
     </message>
     <message>
-        <location filename="../src/qml/SettingsDialog.qml" line="101"/>
+        <location filename="../src/qml/SettingsPages/Appearance.qml.qml" line="101"/>
         <source>Window Blur</source>
         <translation>窗口模糊</translation>
     </message>
