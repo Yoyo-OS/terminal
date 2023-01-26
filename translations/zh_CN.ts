@@ -101,6 +101,21 @@
         <translation>粘贴</translation>
     </message>
     <message>
+        <location filename="../src/qml/Terminal.qml" line="228"/>
+        <source>Clear Screen</source>
+        <translation>清空屏幕</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Terminal.qml" line="234"/>
+        <source>Bookmark</source>
+        <translation>书签</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Terminal.qml" line="248"/>
+        <source>Add to bookmark</source>
+        <translation>添加当前目录到书签</translation>
+    </message>
+    <message>
         <location filename="../src/qml/Terminal.qml" line="204"/>
         <source>Select All</source>
         <translation>全选</translation>
