@@ -317,7 +317,7 @@ TerminalDisplay::TerminalDisplay(QQuickItem *parent)
   , _preserveLineBreaks(false)
   , _columnSelectionMode(false)
   , _scrollbarLocation(QTermWidget::NoScrollBar)
-  , _wordCharacters(QLatin1String(":@-./_~"))
+  , _wordCharacters(QLatin1String(":@-./_~,"))
   , _bellMode(SystemBeepBell)
   , _blinking(false)
   , _hasBlinker(false)
@@ -2390,10 +2390,11 @@ void TerminalDisplay::mouseDoubleClickEvent(QMouseEvent* ev)
   // find word boundaries...
   QChar selClass = charClass(_image[i].character);
   {
-     // find the start of the word
-     int x = bgnSel.x();
-     while ( ((x>0) || (bgnSel.y()>0 && (_lineProperties[bgnSel.y()-1] & LINE_WRAPPED) ))
-                     && charClass(_image[i-1].character) == selClass )
+    // find the start of the word
+    int x = bgnSel.x();
+    while ( ((x>0) || (bgnSel.y()>0 && (_lineProperties[bgnSel.y()-1] & LINE_WRAPPED) ))
+                    && (charClass(_image[i-1].character) == selClass || QChar( _image[i+1].character ) == QLatin1Char('\0') )
+        )//QChar( _image[i+1].character ) == QLatin1Char('\0'),2021-08-26,liwl,通过调整字符前边界增加双击复制时对中文的支持
      {
        i--;
        if (x>0)
@@ -2408,11 +2409,12 @@ void TerminalDisplay::mouseDoubleClickEvent(QMouseEvent* ev)
      bgnSel.setX(x);
      m_screenWindow->setSelectionStart( bgnSel.x() , bgnSel.y() , false );
 
-     // find the end of the word
-     i = loc( endSel.x(), endSel.y() );
-     x = endSel.x();
-     while( ((x<_usedColumns-1) || (endSel.y()<_usedLines-1 && (_lineProperties[endSel.y()] & LINE_WRAPPED) ))
-                     && charClass(_image[i+1].character) == selClass )
+    // find the end of the word
+    i = loc( endSel.x(), endSel.y() );
+    x = endSel.x();
+    while( ((x<_usedColumns-1) || (endSel.y()<_usedLines-1 && (_lineProperties[endSel.y()] & LINE_WRAPPED) ))
+                    && ( charClass(_image[i+1].character) == selClass || QChar( _image[i+1].character ) == QLatin1Char('\0') )
+            ) //QChar( _image[i+1].character ) == QLatin1Char('\0'),2021-08-26,liwl,通过调整字符后边界增加双击复制时对中文的支持
      {
          i++;
          if (x<_usedColumns-1)
@@ -2427,8 +2429,9 @@ void TerminalDisplay::mouseDoubleClickEvent(QMouseEvent* ev)
      endSel.setX(x);
 
      // In word selection mode don't select @ (64) if at end of word.
-     if ( ( QChar( _image[i].character ) == QLatin1Char('@') ) && ( ( endSel.x() - bgnSel.x() ) > 0 ) )
-       endSel.setX( x - 1 );
+    if ( ( QChar( _image[i].character ) == QLatin1Char('@') || QChar( _image[i].character) == QLatin1Char(',') ) 
+                    && ( ( endSel.x() - bgnSel.x() ) > 0 ) )
+    endSel.setX( x - 1 ); 
 
 
      _actSel = 2; // within selection
