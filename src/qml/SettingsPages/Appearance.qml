@@ -85,9 +85,10 @@ ItemPage {
             model: settings.colorschemes
             // Layout.fillHeight: true
             Layout.fillWidth: true
-            displayText: settings.lightcolorScheme
-            Component.onCompleted: {
-                currentText = settings.lightcolorScheme
+            property string lightcolorScheme: settings.lightcolorScheme
+
+            onLightcolorSchemeChanged: {
+                currentIndex = find(lightcolorScheme)
             }
 
             onCurrentTextChanged: {
@@ -105,9 +106,10 @@ ItemPage {
             model: settings.colorschemes
             // Layout.fillHeight: true
             Layout.fillWidth: true
-            displayText: settings.darkcolorScheme
-            Component.onCompleted: {
-                currentText = settings.darkcolorScheme
+            property string darkcolorScheme: settings.darkcolorScheme
+
+            onDarkcolorSchemeChanged: {
+                currentIndex = find(darkcolorScheme)
             }
 
             onCurrentTextChanged: {

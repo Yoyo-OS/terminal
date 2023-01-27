@@ -48,8 +48,7 @@ Page {
     title: _session.title
 
     Component.onCompleted: {
-        _terminal.colorscheme = FishUI.Theme.darkMode ? settings.darkcolorScheme : settings.lightcolorScheme
-        settings.colorschemes = _terminal.availableColorSchemes
+        //settings.colorschemes = _terminal.availableColorSchemes
     }
 
     onUrlsDropped: {
@@ -124,10 +123,6 @@ Page {
 
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
-
-        onAvailableColorSchemesChanged: {
-            settings.colorschemes = availableColorSchemes
-        }
 
         onBackgroundColorChanged: {
             if(FishUI.Theme.darkMode)
