@@ -86,6 +86,10 @@ ItemPage {
             // Layout.fillHeight: true
             Layout.fillWidth: true
             displayText: settings.lightcolorScheme
+            Component.onCompleted: {
+                currentText = settings.lightcolorScheme
+            }
+
             onCurrentTextChanged: {
                 settings.lightcolorScheme = currentText
             }
@@ -102,6 +106,10 @@ ItemPage {
             // Layout.fillHeight: true
             Layout.fillWidth: true
             displayText: settings.darkcolorScheme
+            Component.onCompleted: {
+                currentText = settings.darkcolorScheme
+            }
+
             onCurrentTextChanged: {
                 settings.darkcolorScheme = currentText
             }
