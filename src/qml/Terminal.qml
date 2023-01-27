@@ -47,6 +47,10 @@ Page {
 
     title: _session.title
 
+    Component.onCompleted: {
+        settings.colorschemes = _terminal.availableColorSchemes
+    }
+
     onUrlsDropped: {
         for (var i in urls)
             _session.sendText(urls[i].replace("file://", "") + " ")
@@ -119,7 +123,7 @@ Page {
 
         Keys.enabled: true
         Keys.onPressed: control.keyPressed(event)
-        
+
         onAvailableColorSchemesChanged: {
             settings.colorschemes = availableColorSchemes
         }
