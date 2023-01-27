@@ -19,7 +19,7 @@ Page {
             color: control.background.color
             Label {
                 anchors.left: parent.left
-                leftPadding: FishUI.Units.largeSpacing * 3
+                leftPadding: FishUI.Units.largeSpacing
                 rightPadding: Qt.application.layoutDirection === Qt.RightToLeft ? FishUI.Units.largeSpacing * 3 : 0
                 topPadding: FishUI.Units.smallSpacing
                 bottomPadding: 0

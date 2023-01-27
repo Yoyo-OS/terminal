@@ -2586,6 +2586,7 @@ QChar TerminalDisplay::charClass(QChar qch) const
 void TerminalDisplay::setWordCharacters(const QString& wc)
 {
     _wordCharacters = wc;
+    emit wordCharactersChanged();
 }
 
 void TerminalDisplay::setUsesMouse(bool on)
@@ -2656,6 +2657,11 @@ void TerminalDisplay::setSelection(const QString& t)
 bool TerminalDisplay::selectedText()
 {
     return !m_screenWindow->selectedText(false).isEmpty();
+}
+
+QString TerminalDisplay::getSelectedText()
+{
+    return m_screenWindow->selectedText(_preserveLineBreaks);
 }
 
 void TerminalDisplay::selectAll()

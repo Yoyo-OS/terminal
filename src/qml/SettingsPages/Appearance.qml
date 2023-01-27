@@ -114,11 +114,10 @@ ItemPage {
                 text: qsTr("Keyboard Cursor")
                 color: FishUI.Theme.disabledTextColor
             }
-            GridLayout{
-                columns: 2
-                columnSpacing: FishUI.Units.smallSpacing *2
-                rowSpacing: FishUI.Units.smallSpacing *2
+            ColumnLayout{
+
             }
+            RowLayout{
             Label {
                 text: qsTr("Shape")
             }
@@ -138,6 +137,21 @@ ItemPage {
                 TabButton {
                     text: "|"
                 }
+            }
+            }
+            RowLayout{
+            Label {
+                text: qsTr("Blinking")
+            }
+            Item {
+                Layout.fillWidth: true
+            }
+            Switch {
+                Layout.fillHeight: true
+                Layout.alignment: Qt.AlignRight
+                checked: settings.blinkingCursor
+                onCheckedChanged: settings.blinkingCursor = checked
+            }
             }
         }
 

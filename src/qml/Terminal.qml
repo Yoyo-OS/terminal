@@ -112,6 +112,7 @@ Page {
         font.family: settings.fontName
         font.pointSize: settings.fontPointSize
         blinkingCursor: settings.blinkingCursor
+        wordCharacters: settings.wordCharacters
         fullCursorHeight: true
         backgroundOpacity: 0
         keyboardCursorShape: settings.keyboardCursorShape
@@ -254,6 +255,23 @@ Page {
         }
 
         MenuSeparator{}
+
+        Menu {
+            id: searchMenu
+            title: qsTr("Search")
+            Repeater {
+                model: settings.searchUrl
+                delegate: MenuItem {
+                text: settings.searchUrl[index][0]
+
+                onTriggered:{
+                    var url = settings.searchUrl[index][1];
+                    url = url.replace("{KeyWord}",_terminal.getSelectedText)
+                    Qt.openUrlExternally(url)
+                    }
+                }
+            }
+        }
 
         MenuItem {
             text: qsTr("Open File Manager")

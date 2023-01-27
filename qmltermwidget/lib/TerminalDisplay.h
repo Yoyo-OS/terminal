@@ -97,9 +97,12 @@ class TerminalDisplay : public QQuickPaintedItem
     Q_PROPERTY(QStringList availableColorSchemes READ availableColorSchemes NOTIFY availableColorSchemesChanged)
 
     Q_PROPERTY(bool selectedText READ selectedText CONSTANT)
+    Q_PROPERTY(QString getSelectedText READ getSelectedText CONSTANT)
 
     Q_PROPERTY(qreal backgroundOpacity READ backgroundOpacity WRITE setBackgroundOpacity NOTIFY backgroundOpacityChanged)
     Q_PROPERTY(int keyboardCursorShape READ getKeyboardCursorShape WRITE setKeyboardCursorShape NOTIFY keyboardCursorShapeChanged)
+    Q_PROPERTY(QString wordCharacters READ wordCharacters WRITE setWordCharacters NOTIFY wordCharactersChanged)
+
 public:
     /** Constructs a new terminal display widget with the specified parent. */
     explicit TerminalDisplay(QQuickItem *parent = nullptr);
@@ -362,7 +365,7 @@ public:
 
     void setSelection(const QString &t);
     bool selectedText();
-
+    QString getSelectedText();
     Q_INVOKABLE void selectAll();
 
     /**
@@ -568,7 +571,7 @@ signals:
      * Emitted when the user presses a key whilst the terminal widget has focus.
      */
     void keyPressedSignal(QKeyEvent *e);
-
+    void wordCharactersChanged();
     /**
      * A mouse event occurred.
      * @param button The mouse button (0 for left button, 1 for middle button, 2 for right button, 3 for release)

@@ -28,7 +28,9 @@ Settings {
     property int keyboardCursorShape: 0
     property bool blinkingCursor: true
 
+    property var searchUrl: [[qsTr("Baidu"),"http://www.baidu.com/s?wd={KeyWord}"]]
     property var bookmark: []
+    property string wordCharacters: ":@-./_~,"
     property var colorschemes: ["Yoyo-Light","Yoyo-Dark","BlackOnLightYellow","BlackOnRandomLight","BlackOnWhite","Tango","Ubuntu","Solarized","SolarizedLight"]
     property string lightcolorScheme: "Yoyo-Light"
     property string darkcolorScheme: "Yoyo-Dark"

@@ -15,5 +15,9 @@
         <file>qml/SettingsPages/ItemPage.qml</file>
         <file>qml/SettingsPages/RoundedItem.qml</file>
         <file>images/sidebar/appearance.svg</file>
+        <file>qml/SettingsPages/Bookmark.qml</file>
+        <file>images/sidebar/bookmark.svg</file>
+        <file>qml/SettingsPages/Custom.qml</file>
+        <file>images/sidebar/custom.svg</file>
     </qresource>
 </RCC>

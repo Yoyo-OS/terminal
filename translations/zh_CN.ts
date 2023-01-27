@@ -28,11 +28,76 @@
     </message>
 </context>
 <context>
+    <name>GlobalSettings</name>
+    <message>
+        <location filename="../src/qml/GlobalSettings.qml" line="31"/>
+        <source>Baidu</source>
+        <translation>百度</translation>
+    </message>
+</context>
+<context>
+    <name>Bookmark</name>
+    <message>
+        <location filename="../src/qml/SettingsPages/Bookmark.qml" line="7"/>
+        <location filename="../src/qml/SettingsPages/Bookmark.qml" line="17"/>
+        <source>Bookmark</source>
+        <translation>书签</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Bookmark.qml" line="50"/>
+        <source>Directory address</source>
+        <translation>目录地址</translation>
+    </message>
+</context>
+<context>
+    <name>Custom</name>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="7"/>
+        <source>Custom</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="17"/>
+        <source>Terminal</source>
+        <translation>终端</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="25"/>
+        <source>Word Characters</source>
+        <translation>双击可选中的特殊字符</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="40"/>
+        <source>Search Engines</source>
+        <translation>搜索引擎</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="82"/>
+        <source>Search engine name</source>
+        <translation>搜索引擎名称</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsPages/Custom.qml" line="90"/>
+        <source>Search engine url,Replace the keyword with {keyword}</source>
+        <translation>搜索引擎地址，用{keyword}代替关键词</translation>
+    </message>
+</context>
+<context>
     <name>SettingsSideBar</name>
     <message>
         <location filename="../src/qml/SettingsSideBar.qml" line="34"/>
         <source>Appearance</source>
         <translation>外观</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsSideBar.qml" line="41"/>
+        <source>Bookmark</source>
+        <translation>书签</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/SettingsSideBar.qml" line="48"/>
+        <source>Custom</source>
+        <translation>自定义</translation>
     </message>
 </context>
 <context>
@@ -115,6 +180,11 @@
         <location filename="../src/qml/Terminal.qml" line="234"/>
         <source>Bookmark</source>
         <translation>书签</translation>
+    </message>
+    <message>
+        <location filename="../src/qml/Terminal.qml" line="261"/>
+        <source>Search</source>
+        <translation>搜索</translation>
     </message>
     <message>
         <location filename="../src/qml/Terminal.qml" line="248"/>

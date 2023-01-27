@@ -35,7 +35,21 @@ Item {
             name: "appearance"
             page: "qrc:/qml/SettingsPages/Appearance.qml"
             iconSource: "qrc:/images/sidebar/appearance.svg"
-            iconColor: "#0067FF"
+            iconColor: "#065758"
+        }
+        ListElement {
+            title: qsTr("Bookmark")
+            name: "bookmark"
+            page: "qrc:/qml/SettingsPages/Bookmark.qml"
+            iconSource: "qrc:/images/sidebar/bookmark.svg"
+            iconColor: "#C46960"
+        }
+        ListElement {
+            title: qsTr("Custom")
+            name: "custom"
+            page: "qrc:/qml/SettingsPages/Custom.qml"
+            iconSource: "qrc:/images/sidebar/custom.svg"
+            iconColor: "#C59512"
         }
     }
 
