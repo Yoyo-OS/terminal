@@ -35,21 +35,18 @@ Item {
             name: "appearance"
             page: "qrc:/qml/SettingsPages/Appearance.qml"
             iconSource: "qrc:/images/sidebar/appearance.svg"
-            iconColor: "#065758"
         }
         ListElement {
             title: qsTr("Bookmark")
             name: "bookmark"
             page: "qrc:/qml/SettingsPages/Bookmark.qml"
             iconSource: "qrc:/images/sidebar/bookmark.svg"
-            iconColor: "#C46960"
         }
         ListElement {
             title: qsTr("Custom")
             name: "custom"
             page: "qrc:/qml/SettingsPages/Custom.qml"
             iconSource: "qrc:/images/sidebar/custom.svg"
-            iconColor: "#C59512"
         }
     }
 
@@ -136,21 +133,17 @@ Item {
 
                     Rectangle {
                         id: iconRect
-                        width: 24
-                        height: 24
+                        width: 26
+                        height: 26
                         Layout.alignment: Qt.AlignVCenter
-                        radius: 6
-                        color: model.iconColor
+                        radius: width /2
+                        color: FishUI.Theme.highlightColor
 
-                        gradient: Gradient {
-                            GradientStop { position: 0.0; color: Qt.lighter(model.iconColor, 1.15) }
-                            GradientStop { position: 1.0; color: model.iconColor }
-                        }
 
                         Image {
                             id: icon
                             anchors.centerIn: parent
-                            width: 16
+                            width: 14
                             height: width
                             source: model.iconSource
                             sourceSize: Qt.size(width, height)
